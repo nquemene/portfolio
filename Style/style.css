@@ -1,0 +1,248 @@
+/* ==========================================================
+   Portfolio de Naël Quemener
+   Palette : variables ci-dessous, à modifier en un seul endroit
+   Thème clair par défaut, thème sombre via <html data-theme="dark">
+   ========================================================== */
+:root {
+  --ink: #0e3b3e;          /* texte principal */
+  --teal: #18969a;         /* teal du CV, accents décoratifs */
+  --teal-deep: #0f6e72;    /* fonds de boutons, panneau de code, contact (texte blanc dessus) */
+  --accent-text: #0f6e72;  /* liens et titres colorés sur le fond de page */
+  --hover: #0e3b3e;        /* survol des boutons */
+  --paper: #f2f7f6;        /* fond de page */
+  --mist: #dcebea;         /* surfaces secondaires et traits */
+  --bar: rgba(242, 247, 246, .92);  /* fond de la barre du haut */
+  --amber: #e3a23b;        /* statut « en développement » */
+  --radius: 28px;
+  --font-title: "Montserrat", "Segoe UI", sans-serif;
+  --font-body: "Open Sans", "Segoe UI", sans-serif;
+  --font-code: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  --ink: #e3f0ef;
+  --teal: #3fc1c4;
+  --accent-text: #6fd6d9;
+  --hover: #138288;
+  --paper: #0c1f21;
+  --mist: #17393c;
+  --bar: rgba(12, 31, 33, .92);
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 400 1.0625rem/1.7 var(--font-body);
+}
+a { color: var(--accent-text); }
+a:focus-visible, .btn:focus-visible {
+  outline: 3px solid var(--amber);
+  outline-offset: 3px;
+}
+ul, ol { padding: 0; margin: 0; list-style: none; }
+h1, h2, h3 { font-family: var(--font-title); margin: 0; }
+
+/* ---------- Barre du haut ---------- */
+.topbar {
+  position: sticky; top: 0; z-index: 10;
+  display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;
+  gap: .5rem 2rem;
+  padding: .9rem clamp(1.25rem, 5vw, 4rem);
+  background: var(--bar);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--mist);
+}
+.brand {
+  font: 600 1rem var(--font-title);
+  color: var(--ink); text-decoration: none;
+}
+.topbar nav { display: flex; flex-wrap: wrap; align-items: center; gap: .25rem 1.5rem; }
+.topbar nav a,
+.settings-toggle {
+  font-size: .95rem; text-decoration: none; color: var(--ink);
+  padding: .15rem 0; border-bottom: 2px solid transparent;
+}
+.settings-toggle {
+  font-family: inherit; background: none; border-top: 0; border-inline: 0;
+  cursor: pointer;
+}
+.topbar nav a:hover,
+.settings-toggle:hover { border-color: var(--teal); }
+.settings-toggle:focus-visible,
+.theme-choices button:focus-visible { outline: 3px solid var(--amber); outline-offset: 3px; }
+
+/* Menu Paramètres */
+.settings { position: relative; }
+.settings-panel {
+  position: absolute; right: 0; top: calc(100% + .8rem); z-index: 20;
+  width: 14rem; padding: 1rem 1.2rem;
+  background: var(--paper);
+  border: 1px solid var(--mist);
+  border-radius: 18px 18px 18px 6px;
+  box-shadow: 8px 8px 0 var(--mist);
+}
+.settings-panel p { margin: 0 0 .6rem; font: 600 .95rem var(--font-title); }
+.theme-choices { display: flex; gap: .5rem; }
+.theme-choices button {
+  flex: 1; padding: .4rem .8rem;
+  font: 600 .9rem var(--font-body); color: var(--ink);
+  background: transparent; border: 2px solid var(--teal);
+  border-radius: 999px; cursor: pointer;
+}
+.theme-choices button[aria-pressed="true"] {
+  background: var(--teal-deep); border-color: var(--teal-deep); color: #fff;
+}
+
+/* ---------- Accueil ---------- */
+.hero {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: center;
+  padding: clamp(3rem, 9vw, 7rem) clamp(1.25rem, 5vw, 4rem);
+  max-width: 78rem; margin: 0 auto;
+}
+.hero h1 {
+  font-weight: 200;
+  font-size: clamp(3.2rem, 9vw, 6.5rem);
+  line-height: 1;
+  letter-spacing: -.02em;
+  text-transform: uppercase;
+}
+.role {
+  margin: 1.5rem 0 0;
+  font: 600 1.35rem var(--font-title);
+  color: var(--accent-text);
+}
+.lead { margin: .5rem 0 2rem; max-width: 30rem; font-weight: 300; font-size: 1.2rem; }
+
+.btn {
+  display: inline-block;
+  padding: .75rem 1.6rem; margin: 0 .5rem .5rem 0;
+  border-radius: 999px;
+  background: var(--teal-deep); color: #fff;
+  font-weight: 600; text-decoration: none;
+  border: 2px solid var(--teal-deep);
+}
+.btn:hover { background: var(--hover); border-color: var(--hover); }
+.btn-ghost { background: transparent; color: var(--accent-text); }
+.btn-ghost:hover { color: #fff; }
+
+/* Panneau de code : le moment visuel de la page */
+.code-panel {
+  background: var(--teal-deep);
+  color: #e6f4f3;
+  border-radius: var(--radius) var(--radius) var(--radius) 6px;
+  overflow: hidden;
+  box-shadow: 14px 14px 0 var(--mist);
+}
+.code-bar {
+  display: flex; align-items: center; gap: .4rem;
+  padding: .8rem 1.2rem;
+  background: rgba(0, 0, 0, .18);
+}
+.code-bar span { width: .7rem; height: .7rem; border-radius: 50%; background: rgba(255, 255, 255, .35); }
+.code-bar em { margin-left: .8rem; font: .85rem var(--font-code); opacity: .8; }
+.code-panel pre { margin: 0; padding: 1.4rem 1.4rem 1.6rem; overflow-x: auto; }
+.code-panel code { font: .95rem/1.75 var(--font-code); }
+.code-panel code > span { display: block; white-space: pre; }
+.code-panel b { font-weight: 400; color: var(--amber); }
+.code-panel i { font-style: normal; color: #9fe3e1; }
+.code-panel s { text-decoration: none; color: #fff; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .code-panel code > span {
+    opacity: 0;
+    animation: ligne .01s forwards;
+    animation-delay: calc(.4s + var(--i) * .3s);
+  }
+  @keyframes ligne { to { opacity: 1; } }
+}
+
+/* ---------- Sections ---------- */
+.section {
+  display: grid;
+  grid-template-columns: minmax(10rem, 1fr) 3fr;
+  gap: 1.5rem clamp(2rem, 6vw, 5rem);
+  max-width: 78rem; margin: 0 auto;
+  padding: clamp(2.5rem, 6vw, 4.5rem) clamp(1.25rem, 5vw, 4rem);
+  border-top: 1px solid var(--mist);
+}
+.section > h2 {
+  align-self: start; position: sticky; top: 5.5rem;
+  font-weight: 300; font-size: clamp(1.8rem, 3.2vw, 2.4rem);
+  color: var(--accent-text);
+}
+.content { max-width: 44rem; }
+.content p { margin: 0 0 1.1rem; }
+
+.facts { margin-top: 1.5rem; border-left: 4px solid var(--teal); padding-left: 1.2rem; }
+.facts li { padding: .15rem 0; }
+.facts span { display: inline-block; min-width: 7rem; font-weight: 600; }
+
+/* ---------- Pastilles et listes ---------- */
+.chips { display: flex; flex-wrap: wrap; gap: .5rem; }
+.chips li {
+  padding: .3rem 1rem;
+  border: 2px solid var(--teal);
+  border-radius: 999px;
+  font-weight: 600; font-size: .95rem;
+}
+.chips.small { flex-wrap: nowrap; }
+.chips.small li { padding: .05rem .7rem; font-size: .8rem; border-width: 1.5px; white-space: nowrap; }
+.plain li { padding: .2rem 0; }
+
+/* ---------- Projets et Compétences (même organisation) ---------- */
+.project,
+.competences {
+  padding: 1.6rem 0 1.8rem;
+  border-bottom: 1px solid var(--mist);
+}
+.project:first-child,
+.competences:first-child { padding-top: 0; }
+
+.project header,
+.competences header {
+  display: flex; flex-wrap: wrap; align-items: center;
+  gap: .6rem 1rem; margin-bottom: .8rem;
+}
+.project h3,
+.competences h3 { margin: 0; font-size: 1.6rem; font-weight: 600; }
+
+.in-progress,
+.competences:last-child { border-bottom: 0; }
+
+.project .link { font-weight: 600; }
+.badge {
+  padding: .1rem .8rem; border-radius: 999px;
+  background: var(--amber); color: #0e3b3e;
+  font-size: .8rem; font-weight: 600;
+}
+
+/* ---------- Contact ---------- */
+.contact { background: var(--teal-deep); color: #fff; max-width: none; border-top: 0; }
+.contact > * { max-width: 78rem; }
+.contact { padding-inline: max(clamp(1.25rem, 5vw, 4rem), calc((100vw - 78rem) / 2 + clamp(1.25rem, 5vw, 4rem))); }
+.contact > h2 { color: #fff; }
+.contact .big { font: 300 clamp(1.5rem, 3vw, 2.2rem)/1.3 var(--font-title); }
+.contact a { color: #fff; }
+.mail { font-weight: 600; font-size: 1.25rem; }
+.social { display: flex; gap: 1.5rem; margin-top: 1.5rem; }
+.contact a:focus-visible { outline-color: #fff; }
+
+footer { padding: 1.5rem; text-align: center; font-size: .9rem; opacity: .75; }
+footer p { margin: 0; }
+
+/* ---------- Mobile ---------- */
+@media (max-width: 800px) {
+  .hero { grid-template-columns: 1fr; }
+  .section { grid-template-columns: 1fr; }
+  .section > h2 { position: static; }
+  .code-panel { box-shadow: 8px 8px 0 var(--mist); }
+  .settings-panel { position: static; margin-top: .6rem; box-shadow: none; }
+}

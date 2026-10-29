@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Naël Quemener | Portfolio</title>
+  <meta name="description" content="Portfolio de Naël Quemener, développeur full stack en formation à Zone01, en recherche d'alternance.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script>
+  (function () {
+    var theme = null;
+    try { theme = localStorage.getItem("theme"); } catch (e) {}
+    if (theme !== "light" && theme !== "dark") {
+      theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    document.documentElement.setAttribute("data-theme", theme);
+  })();
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;600&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="..Style/style.css">
+</head>
+<body>
+
+  <header class="topbar">
+    <a class="brand" href="#accueil">Naël Quemener</a>
+    <nav aria-label="Navigation principale">
+      <a href="#apropos">À propos</a>
+      <a href="#competences">Compétences</a>
+      <a href="#projets">Projets</a>
+      <a href="#contact">Contact</a>
+      <div class="settings">
+      <button class="settings-toggle" type="button" aria-expanded="false" aria-controls="settings-panel">Paramètres</button>
+     <div class="settings-panel" id="settings-panel" hidden>
+        <p>Thème</p>
+       <div class="theme-choices">
+          <button type="button" data-theme-choice="light" aria-pressed="true">Clair</button>
+          <button type="button" data-theme-choice="dark" aria-pressed="false">Sombre</button>
+        </div>
+      </div>
+    </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ACCUEIL -->
+    <section class="hero" id="accueil">
+      <div class="hero-text">
+        <h1>Quemener<br>Naël</h1>
+        <p class="role">Développeur full stack</p>
+        <p class="lead">En formation à Zone01 et à la recherche d'une alternance.</p>
+        <a class="btn" href="#projets">Voir mes projets</a>
+        <a class="btn btn-ghost" href="#contact">Me contacter</a>
+      </div>
+
+      <div class="code-panel" aria-hidden="true">
+        <div class="code-bar"><span></span><span></span><span></span><em>main.go</em></div>
+<pre><code><span style="--i:0"><b>package</b> main</span>
+<span style="--i:1"> </span>
+<span style="--i:2"><b>func</b> <i>main</i>() {</span>
+<span style="--i:3">    dev := Developpeur{</span>
+<span style="--i:4">        Nom:       <s>"Naël Quemener"</s>,</span>
+<span style="--i:5">        Formation: <s>"Zone01"</s>,</span>
+<span style="--i:6">        Cherche:   <s>"une alternance"</s>,</span>
+<span style="--i:7">    }</span>
+<span style="--i:8">    fmt.<i>Println</i>(dev)</span>
+<span style="--i:9">}</span></code></pre>
+      </div>
+    </section>
+
+    <!-- À PROPOS -->
+    <section class="section" id="apropos">
+      <h2>À propos</h2>
+      <div class="content">
+        <p>Passionné par l'informatique et animé par une curiosité grandissante pour le développement, je suis actuellement en formation au sein de Zone01.</p>
+        <p>À la recherche d'une alternance, je souhaite mettre en pratique mes compétences, approfondir mes connaissances et acquérir une expérience concrète en milieu professionnel.</p>
+        <ul class="facts">
+          <li><span>Localisation</span> Saint-Pierre-lès-Elbeuf (76)</li>
+          <li><span>Langue</span> Anglais, niveau B1</li>
+          <li><span>Mobilité</span> Permis B</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- COMPÉTENCES -->
+    <section class="section" id="competences">
+  <h2>Compétences</h2>
+  <div class="content">
+
+    <article class="competences">
+      <header>
+        <h3>Techniques</h3>
+      </header>
+      <ul class="chips">
+        <li>Go</li><li>JavaScript</li><li>HTML</li><li>CSS</li><li>Git</li>
+      </ul>
+    </article>
+
+    <article class="competences">
+      <header>
+        <h3>Savoir-être</h3>
+      </header>
+      <ul class="plain">
+        <li>Communication écrite et orale</li>
+        <li>Gestion du temps et des priorités</li>
+        <li>Intelligence émotionnelle</li>
+        <li>Pensée critique</li>
+      </ul>
+    </article>
+
+  </div>
+</section>
+
+    <!-- PROJETS -->
+    <section class="section" id="projets">
+      <h2>Projets</h2>
+      <div class="content">
+
+        <article class="project">
+          <header>
+            <h3>ASCII-ART-WEB</h3>
+            <ul class="chips small"><li>Go</li><li>HTML</li><li>CSS</li></ul>
+          </header>
+          <p>Serveur HTTP en Go proposant une interface web pour générer de l'art ASCII à partir d'un texte saisi. L'utilisateur choisit parmi trois bannières et obtient le rendu directement dans le navigateur. Gestion des codes HTTP (200, 400, 404, 500) et templates HTML.</p>
+          <a class="link" href="https://github.com/nquemene/ascii-art-web">Voir le code sur GitHub</a>
+        </article>
+
+        <article class="project">
+          <header>
+            <h3>GROUPIE-TRACKER</h3>
+            <ul class="chips small"><li>Go</li><li>HTML</li><li>CSS</li></ul>
+          </header>
+          <p>Application web en Go consommant une API REST (artistes, lieux, dates) pour présenter les informations de groupes de musique sous forme de cartes et de pages détaillées. Intègre une fonctionnalité interactive avec échange client-serveur.</p>
+          <a class="link" href="https://github.com/nquemene/groupie-tracker">Voir le code sur GitHub</a>
+        </article>
+
+        <article class="project in-progress">
+          <header>
+            <h3>FORUM</h3>
+            <ul class="chips small"><li>Go</li><li>HTML</li><li>CSS</li></ul>
+            <span class="badge">En développement</span>
+          </header>
+          <p>Projet de forum web en cours de réalisation.</p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section contact" id="contact">
+      <h2>Contact</h2>
+      <div class="content">
+        <p class="big">Une alternance à proposer ? Écrivez-moi.</p>
+        <a class="mail" href="mailto:quemenernaelpro@gmail.com">quemenernaelpro@gmail.com</a>
+        <p class="social">
+          <a href="https://github.com/nquemene">GitHub</a>
+          <a href="https://www.linkedin.com/in/na%C3%ABl-quemener-69484a437/">LinkedIn</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Naël Quemener, développeur full stack</p>
+  </footer>
+
+  <script>
+  (function () {
+    var root = document.documentElement;
+    var toggle = document.querySelector(".settings-toggle");
+    var panel = document.getElementById("settings-panel");
+    var choices = panel.querySelectorAll("[data-theme-choice]");
+
+    function applyTheme(theme, save) {
+      root.setAttribute("data-theme", theme);
+      choices.forEach(function (b) {
+        b.setAttribute("aria-pressed", b.dataset.themeChoice === theme);
+      });
+      if (save) {
+        try { localStorage.setItem("theme", theme); } catch (e) {}
+      }
+    }
+    function setOpen(open) {
+      panel.hidden = !open;
+      toggle.setAttribute("aria-expanded", open);
+    }
+
+     applyTheme(root.getAttribute("data-theme"), false);
+     toggle.addEventListener("click", function () { setOpen(panel.hidden); });
+     choices.forEach(function (b) {
+       b.addEventListener("click", function () { applyTheme(b.dataset.themeChoice, true); });
+     });
+     document.addEventListener("click", function (e) {
+       if (!e.target.closest(".settings")) setOpen(false);
+     });
+     document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") { setOpen(false); toggle.focus(); }
+      });
+    })();
+  </script>
+</body>
+</html>
