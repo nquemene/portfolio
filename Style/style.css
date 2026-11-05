@@ -1,34 +1,12 @@
 /* ==========================================================
-   Portfolio de Naël Quemener
-   Palette : variables ci-dessous, à modifier en un seul endroit
-   Thème clair par défaut, thème sombre via <html data-theme="dark">
+   Portfolio de Naël Quemener : mise en page commune
+   Les couleurs viennent de lightmode.css et darkmode.css
    ========================================================== */
 :root {
-  --ink: #0e3b3e;          /* texte principal */
-  --teal: #18969a;         /* teal du CV, accents décoratifs */
-  --teal-deep: #0f6e72;    /* fonds de boutons, panneau de code, contact (texte blanc dessus) */
-  --accent-text: #0f6e72;  /* liens et titres colorés sur le fond de page */
-  --hover: #0e3b3e;        /* survol des boutons */
-  --paper: #f2f7f6;        /* fond de page */
-  --mist: #dcebea;         /* surfaces secondaires et traits */
-  --bar: rgba(242, 247, 246, .92);  /* fond de la barre du haut */
-  --amber: #e3a23b;        /* statut « en développement » */
   --radius: 28px;
   --font-title: "Montserrat", "Segoe UI", sans-serif;
   --font-body: "Open Sans", "Segoe UI", sans-serif;
   --font-code: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
-  color-scheme: light;
-}
-
-:root[data-theme="dark"] {
-  --ink: #e3f0ef;
-  --teal: #3fc1c4;
-  --accent-text: #6fd6d9;
-  --hover: #138288;
-  --paper: #0c1f21;
-  --mist: #17393c;
-  --bar: rgba(12, 31, 33, .92);
-  color-scheme: dark;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -80,17 +58,18 @@ h1, h2, h3 { font-family: var(--font-title); margin: 0; }
 .settings { position: relative; }
 .settings-panel {
   position: absolute; right: 0; top: calc(100% + .8rem); z-index: 20;
-  width: 14rem; padding: 1rem 1.2rem;
+  width: 17rem; max-width: 100%; padding: 1rem 1.2rem;
   background: var(--paper);
   border: 1px solid var(--mist);
   border-radius: 18px 18px 18px 6px;
   box-shadow: 8px 8px 0 var(--mist);
 }
 .settings-panel p { margin: 0 0 .6rem; font: 600 .95rem var(--font-title); }
-.theme-choices { display: flex; gap: .5rem; }
+.settings-panel .settings-hint { margin: .7rem 0 0; font: .8rem/1.4 var(--font-body); opacity: .8; }
+.theme-choices { display: flex; gap: .4rem; }
 .theme-choices button {
-  flex: 1; padding: .4rem .8rem;
-  font: 600 .9rem var(--font-body); color: var(--ink);
+  flex: 1; padding: .4rem .5rem;
+  font: 600 .85rem var(--font-body); color: var(--ink);
   background: transparent; border: 2px solid var(--teal);
   border-radius: 999px; cursor: pointer;
 }

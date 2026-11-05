@@ -1,0 +1,16 @@
+/* ==========================================================
+   Thème clair (par défaut)
+   Les couleurs changent ici, la mise en page reste dans style.css
+   ========================================================== */
+:root {
+  --ink: #0e3b3e;          /* texte principal */
+  --teal: #18969a;         /* teal du CV, accents décoratifs */
+  --teal-deep: #0f6e72;    /* fonds de boutons, panneau de code, contact (texte blanc dessus) */
+  --accent-text: #0f6e72;  /* liens et titres colorés sur le fond de page */
+  --hover: #0e3b3e;        /* survol des boutons */
+  --paper: #f2f7f6;        /* fond de page */
+  --mist: #dcebea;         /* surfaces secondaires et traits */
+  --bar: rgba(242, 247, 246, .92);  /* fond de la barre du haut */
+  --amber: #e3a23b;        /* statut « en développement » */
+  color-scheme: light;
+}

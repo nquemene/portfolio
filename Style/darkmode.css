@@ -1,0 +1,14 @@
+/* ==========================================================
+   Thème sombre : activé par <html data-theme="dark">
+   Il ne redéfinit que les couleurs qui changent par rapport au clair
+   ========================================================== */
+:root[data-theme="dark"] {
+  --ink: #e3f0ef;
+  --teal: #3fc1c4;
+  --accent-text: #6fd6d9;
+  --hover: #138288;
+  --paper: #0c1f21;
+  --mist: #17393c;
+  --bar: rgba(12, 31, 33, .92);
+  color-scheme: dark;
+}
